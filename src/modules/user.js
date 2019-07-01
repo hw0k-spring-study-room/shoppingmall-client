@@ -22,6 +22,7 @@ const initialState = {
 
 const reducer = handleActions({
   [creators.LOGIN_ATTEMPT]: (state, action) => produce(state, draft => {
+    draft.user = {};
     draft.isLoading = true;
     draft.isErrored = false;
   }),
@@ -30,6 +31,7 @@ const reducer = handleActions({
     draft.isLoading = false;
   }),
   [creators.LOGIN_REJECT]: (state, action) => produce(state, draft => {
+    draft.user = {};
     draft.isLoading = false;
     draft.isErrored = true;
   })
